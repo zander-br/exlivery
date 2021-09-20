@@ -13,5 +13,13 @@ defmodule Exlivery.Orders.ItemTest do
 
       assert reponse == expected_response
     end
+
+    test "when there is an invalid category, returns an error" do
+      response = Item.build("Pizza Mussarela", :invalid_category, "42.5", 1)
+
+      expected_response = {:error, "Invalid parameters"}
+
+      assert response == expected_response
+    end
   end
 end
