@@ -41,20 +41,5 @@ defmodule Exlivery.Users.UserTest do
 
       assert response == expected_response
     end
-
-    test "when user cpf is not a string, returns an error" do
-      response =
-        User.build(
-          "Joe Doe",
-          "joe.doe@test.com",
-          12_345_678_900,
-          19,
-          "620 Eighth Avenue"
-        )
-
-      expected_response = {:error, "Invalid parameters"}
-
-      assert response == expected_response
-    end
   end
 end
